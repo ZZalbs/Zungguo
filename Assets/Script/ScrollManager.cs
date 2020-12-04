@@ -47,7 +47,7 @@ public class ScrollManager: MonoBehaviour
             sprites[leftTile].transform.localPosition = rightSpritePos + Vector3.right * viewHeight; // 왼쪽 끝에 오면 오른쪽 끝까지 보냄
             //Transform leftPos = sprites[leftTile].transform;
             //leftPos.Translate(new Vector3(viewHeight*sprites.Length,0,0)); // 왼쪽 끝에 오면 오른쪽 끝까지 보냄
-            Debug.Log(Vector3.right * viewHeight * (sprites.Length));
+            //Debug.Log(Vector3.right * viewHeight * (sprites.Length));
 
             //스프라이트 인덱스 정리
             
