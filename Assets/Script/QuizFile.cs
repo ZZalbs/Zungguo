@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 public class QuizFile : MonoBehaviour
 {
     int mode = 0;
     int result = 0;
     public GameObject quiztile;
-    public GameObject[] images = new GameObject[4];
+    public Sprite[] images = new Sprite[4];
+    SpriteRenderer qs;
     public List<QuizFiletype> spawnList;
     public int spawnIndex;
     public bool spawnEnd;
@@ -17,7 +19,7 @@ public class QuizFile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        qs = quiztile.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -61,26 +63,26 @@ public class QuizFile : MonoBehaviour
     public void Click1()
     {
         mode = 1;
-        quiztile = images[0];
+        qs.sprite = images[0];
         Debug.Log(mode);
     }
     public void Click2()
     {
         mode = 2;
-        quiztile = images[1];
+        qs.sprite = images[1];
         Debug.Log(mode);
     }
     public void Click3()
     {
         mode = 3;
-        quiztile = images[2];
+        qs.sprite = images[2];
         Debug.Log(mode);
     }
 
     public void Click4()
     {
         mode = 4;
-        quiztile = images[3];
+        qs.sprite = images[3];
         Debug.Log(mode);
     }
 
