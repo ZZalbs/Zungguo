@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScrollManager: MonoBehaviour
 {
+    public QuizFile qf;
     public float speed;
     public int rightTile;// 현재꺼 인덱스, (제일처음 시작시 마지막 인덱스)
     public int leftTile;//제일 먼저나오는거 인덱스
@@ -32,7 +33,7 @@ public class ScrollManager: MonoBehaviour
     void Move()
     {
         curPos = transform.position;
-        nextPos = Vector2.left * speed * Time.deltaTime;
+        nextPos = Vector2.left * speed * qf.hardness* Time.deltaTime;
         transform.position = curPos + nextPos;
 
     }

@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ff1746a3b75ac4caf74e363bffd936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hardness: 2
   quiztile: {fileID: 916645469}
   quiztileLeft: {fileID: 511979328}
   quiztileRight: {fileID: 1776222292}
@@ -2075,6 +2076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1289346c24042e143adf75ed55c085db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  qf: {fileID: 68583666}
   speed: 2
   rightTile: 2
   leftTile: 0
@@ -2415,6 +2417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1289346c24042e143adf75ed55c085db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  qf: {fileID: 68583666}
   speed: 3
   rightTile: 4
   leftTile: 0
