@@ -94,7 +94,7 @@ public class QuizFile : MonoBehaviour
         quiz = spawnList[spawnIndex].zungguo;
         mean = spawnList[spawnIndex].meaning;
         res = spawnList[spawnIndex].sungjo;
-        quizText.text = quiz;
+        quizText.text = quiz+"  "+mean;
         quizSet.SetActive(true);
     }
 
@@ -202,9 +202,9 @@ public class QuizFile : MonoBehaviour
     }
     IEnumerator sungjo4()  // 4성 무브먼트
     {
-        yield return new WaitForSeconds(0.4f / hardness);
+        yield return new WaitForSeconds(0.3f / hardness);
         quiztileRight.transform.Translate(0, -4f, 0);
-        for (int i = 0; i < 50 / hardness; i++)
+        for (int i = 0; i < 50/hardness; i++)
         {
             quiztileRight.transform.Translate(0, 0.08f * hardness, 0);
             quiztileLeft.transform.Translate(0, 0.08f * hardness, 0);
