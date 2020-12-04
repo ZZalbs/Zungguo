@@ -4,3 +4,26 @@ shenme/2/무엇
 shihou/2/때
 zai/4/있다
 zhan/4/역
+kuai/4/빠르다
+xianzai/4/지금,현재
+ban/4/30분
+mei/2/없다
+guanxi/1/관계
+hai/2/아직
+fenzhong/1/분(시간)
+ke/4/수업,15분[동음이의어]
+di/4/번째
+jie/2/교시
+yisi/4/재미,흥미
+zui/4/가장
+xihuan/3/좋아하다
+liang/3/2(기수)
+hen/3/매우
+wei/4/여보세요(발음상 2성)
+mang/2/바쁘다
+shi/4/일
+zai/4/~에서,있다
+zhan/4/역
+xing/2/좋다
+e/4/배고프다
+lei/4/피곤하다

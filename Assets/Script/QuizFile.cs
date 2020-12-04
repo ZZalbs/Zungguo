@@ -72,11 +72,14 @@ public class QuizFile : MonoBehaviour
                 break;
 
             //읽은 값 리스트에 넣기
-            QuizFiletype quizData = new QuizFiletype();
-            quizData.zungguo = line.Split('/')[0];
-            quizData.sungjo = int.Parse(line.Split('/')[1]);
-            quizData.meaning = line.Split('/')[2];
-            
+            QuizFiletype quizData = new QuizFiletype
+            {
+                zungguo = line.Split('/')[0],
+                //Debug.Log(quizData.zungguo);
+                sungjo = int.Parse(line.Split('/')[1]),
+                meaning = line.Split('/')[2]
+            };
+
             spawnList.Add(quizData);
         }
         //파일 닫기
@@ -87,6 +90,7 @@ public class QuizFile : MonoBehaviour
 
     void QuizStart()
     {
+        spawnIndex = Random.Range(0, spawnList.Count);
         quiz = spawnList[spawnIndex].zungguo;
         mean = spawnList[spawnIndex].meaning;
         res = spawnList[spawnIndex].sungjo;
@@ -187,7 +191,7 @@ public class QuizFile : MonoBehaviour
             yield return new WaitForSeconds(0.025f / hardness);
         }
         StartCoroutine("playerTurn", 6);
-        yield return new WaitForSeconds(0.2f / hardness);
+        yield return new WaitForSeconds(0.1f / hardness);
         for (int i = 0; i < 25; i++)
         {
             player.transform.Translate(0, 0.1f, 0, Space.World);
