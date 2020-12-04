@@ -8,6 +8,7 @@ public class QuizFile : MonoBehaviour
     int mode = 0;
     int result = 0;
     int score = 0;
+    int hardness=1;
     public GameObject quiztile; // 퀴즈 타일
     public GameObject quiztileLeft; // 퀴즈타일 왼쪽꺼
     public GameObject quiztileRight; // 퀴즈타일 오른쪽꺼
@@ -130,12 +131,15 @@ public class QuizFile : MonoBehaviour
             switch(mode)
             {
                 case 2:
+                    StartCoroutine("playerTurn", 3);
                     StartCoroutine("sungjo2");
                     break;
                 case 3:
                     StartCoroutine("sungjo3");
+                    StartCoroutine("playerTurn", -3);
                     break;
                 case 4:
+                    StartCoroutine("playerTurn", -3);
                     StartCoroutine("sungjo4");
                     break;
             }
@@ -143,24 +147,72 @@ public class QuizFile : MonoBehaviour
         else
         {
             Rigidbody2D rigid = player.GetComponent<Rigidbody2D>();
+            Rigidbody2D tileRg = quiztile.GetComponent<Rigidbody2D>();
             rigid.gravityScale = 2.0f;
-            
-            
+            tileRg.gravityScale = 2.0f;
+
         }
     }
 
+    IEnumerator playerTurn(int angle)
+    {
+        for (int i = 0; i < 15; i++)
+        {
+            player.transform.Rotate(new Vector3(0, 0, angle));
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
 
     IEnumerator sungjo2()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.3f);
+        quiztileRight.transform.Translate(0, 4f, 0);
+        for (int i = 0; i < 50; i++)
+        {
+            quiztileRight.transform.Translate(0, -0.08f, 0);
+            quiztileLeft.transform.Translate(0, -0.08f, 0);
+            quiztile.transform.Translate(0,-0.08f,0);
+            yield return new WaitForSeconds(0.018f);
+        }
+        //quiztileRight.transform.Translate(0, 4f, 0);
+        StartCoroutine("playerTurn", -3);
+        yield return new WaitForSeconds(1f);
+        quiztileLeft.transform.localPosition = new Vector3(quiztileLeft.transform.localPosition.x,-1.4f,0);
+        quiztile.transform.localPosition = new Vector3(quiztile.transform.localPosition.x, -1.4f, 0);
     }
     IEnumerator sungjo3()
     {
-        yield return new WaitForSeconds(1.0f);
+        for (int i = 0; i < 25; i++)
+        {
+            player.transform.Translate(0, -0.1f, 0,Space.World);
+            yield return new WaitForSeconds(0.025f);
+        }
+        StartCoroutine("playerTurn", 6);
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i < 25; i++)
+        {
+            player.transform.Translate(0, 0.1f, 0, Space.World);
+            yield return new WaitForSeconds(0.025f);
+        }
+        StartCoroutine("playerTurn",-3);
+
     }
     IEnumerator sungjo4()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.4f);
+        quiztileRight.transform.Translate(0, -4f, 0);
+        for (int i = 0; i < 50; i++)
+        {
+            quiztileRight.transform.Translate(0, 0.08f, 0);
+            quiztileLeft.transform.Translate(0, 0.08f, 0);
+            quiztile.transform.Translate(0, 0.08f, 0);
+            yield return new WaitForSeconds(0.018f);
+        }
+        //quiztileRight.transform.Translate(0, 4f, 0);
+        StartCoroutine("playerTurn", 3);
+        yield return new WaitForSeconds(1f);
+        quiztileLeft.transform.localPosition = new Vector3(quiztileLeft.transform.localPosition.x, -1.4f, 0);
+        quiztile.transform.localPosition = new Vector3(quiztile.transform.localPosition.x, -1.4f, 0);
     }
 
 }

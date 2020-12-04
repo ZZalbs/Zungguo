@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quiztile: {fileID: 916645469}
   quiztileLeft: {fileID: 511979328}
-  quiztileRight: {fileID: 0}
+  quiztileRight: {fileID: 1776222292}
   images:
   - {fileID: 21300000, guid: c77f8093878367c42ae95fbf1a16f7a6, type: 3}
   - {fileID: 21300000, guid: 7f15d3f48b8f6e74380aa25e4391f3d8, type: 3}
@@ -467,7 +467,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.6640034, y: 1.1806359}
+  m_Offset: {x: -2.11, y: 1.1806359}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -746,7 +746,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.0630455, y: 1.313623}
+  m_Offset: {x: 2.95, y: 1.313623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1058,6 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 916645471}
   - component: {fileID: 916645470}
+  - component: {fileID: 916645472}
   m_Layer: 0
   m_Name: tile5
   m_TagString: Untagged
@@ -1104,7 +1105,7 @@ SpriteRenderer:
   m_SortingLayerID: 1768855297
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a2c0a26463d0ab645a1ecb9c21bac30d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f15d3f48b8f6e74380aa25e4391f3d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1131,6 +1132,27 @@ Transform:
   m_Father: {fileID: 1698372855}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &916645472
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916645469}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &992243853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,7 +2075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1289346c24042e143adf75ed55c085db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
   rightTile: 2
   leftTile: 0
   sprites:
