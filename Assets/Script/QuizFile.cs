@@ -10,11 +10,13 @@ public class QuizFile : MonoBehaviour
     int score = 0;
     public GameObject quiztile; // 퀴즈 타일
     public GameObject quiztileLeft; // 퀴즈타일 왼쪽꺼
+    public GameObject quiztileRight; // 퀴즈타일 오른쪽꺼
     public Sprite[] images = new Sprite[4];
     SpriteRenderer qs;
 
     public GameObject player;
     public Text quizText;
+    public Text distanceText;
     public GameObject quizSet;
 
     public bool quizcheck; // true이면 퀴즈 시작 가능한 상태,  false이면 퀴즈 안나오는 상태
@@ -26,6 +28,7 @@ public class QuizFile : MonoBehaviour
     public bool spawnEnd;
     string line;
 
+    int a;
 
     // Start is called before the first frame update
     void Start()
@@ -39,8 +42,11 @@ public class QuizFile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        a = (quiztile.transform.position.x - player.transform.position.x - 3.8) / 0.196 >= 0 ? (int)((quiztile.transform.position.x - player.transform.position.x -3.8) / 0.196) : 0; // 거리계산식
+        distanceText.text =  a.ToString() + "m";
         if(quizcheck)
         {
+            distanceText.enabled = true; 
             QuizStart();
             quizcheck = false;
             Debug.Log(res);
@@ -137,16 +143,24 @@ public class QuizFile : MonoBehaviour
         else
         {
             Rigidbody2D rigid = player.GetComponent<Rigidbody2D>();
-            rigid.gravityScale = 1.0f;
+            rigid.gravityScale = 2.0f;
             
-            Time.timeScale = 0;
+            
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+
+    IEnumerator sungjo2()
     {
-        
-        
+        yield return new WaitForSeconds(1.0f);
+    }
+    IEnumerator sungjo3()
+    {
+        yield return new WaitForSeconds(1.0f);
+    }
+    IEnumerator sungjo4()
+    {
+        yield return new WaitForSeconds(1.0f);
     }
 
 }

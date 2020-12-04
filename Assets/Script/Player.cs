@@ -19,13 +19,22 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "quizStart") qf.quizSet.SetActive(false);
+        if (collision.gameObject.tag == "quizStart") {
+            qf.ResultCheck();
+            qf.quizSet.SetActive(false);
+        }
         if (collision.gameObject.tag == "quizStop")
         {
+            
             qf.quizSet.SetActive(true);
             qf.spawnIndex++;
             qf.quizcheck = true;
             
+        }
+
+        if(collision.gameObject.tag == "Die")
+        {
+            Time.timeScale = 0;
         }
     }
 
