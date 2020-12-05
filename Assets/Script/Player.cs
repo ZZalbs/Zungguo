@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
         if(collision.gameObject.tag == "Die")
         {
+            GameObject.Find("GameSystem").GetComponent<EndManager>().enabled = true;
             Time.timeScale = 0;
         }
     }

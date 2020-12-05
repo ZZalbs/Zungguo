@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    bool MouseDown = false;
     void Start()
     {
-        
+        GameObject.Find("GameUI").transform.GetChild(2).gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.touchCount >= 1 || Input.GetMouseButtonDown(0) || MouseDown)
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
