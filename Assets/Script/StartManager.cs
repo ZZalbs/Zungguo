@@ -13,7 +13,7 @@ public class StartManager : MonoBehaviour
         GameObject.Find("GameUI").transform.GetChild(2).gameObject.SetActive(false);
     }
 
-
+    
 
 
 }
