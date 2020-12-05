@@ -29,6 +29,10 @@ public class StartManager : MonoBehaviour
             MouseDown = true;
             timeCount -= Time.deltaTime;
             GameObject.Find("GameUI").transform.Find("StartMenuUI").Find("timeLeft").GetComponent<SpriteRenderer>().sprite = TimeLeftSprites[(int)timeCount % 4];
+            if((int)timeCount%4 == 0)
+            {
+                GameObject.Find("GameUI").transform.Find("StartMenuUI").Find("timeLeft").transform.localScale = new Vector3(58, 52, 42.2f);
+            }
             if(timeCount <= 0.5)
             {
                 GameObject.Find("BackGround").GetComponent<ScrollManager>().enabled = true;

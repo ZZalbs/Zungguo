@@ -35,8 +35,16 @@ public class Player : MonoBehaviour
 
         if(collision.gameObject.tag == "Die")
         {
-            GameObject.Find("GameSystem").GetComponent<EndManager>().enabled = true;
-            Time.timeScale = 0;
+            if(collision.gameObject.name == "dieZoneCheck")
+            {
+                GameObject.Find("GameUI").transform.Find("GamePlayUI").gameObject.SetActive(false);
+            }
+            else
+            {
+                GameObject.Find("GameUI").transform.GetChild(1).gameObject.SetActive(false);
+                GameObject.Find("GameSystem").GetComponent<EndManager>().enabled = true;
+                Time.timeScale = 0;
+            }
         }
     }
 
