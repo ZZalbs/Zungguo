@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartManager : MonoBehaviour
 {
     bool MouseDown = false;
     float timeCount = 4;
     public Sprite[] TimeLeftSprites;
+    public Text touchToStart;
+    float colorcheck = 0;
 
     private void Start()
     {
@@ -15,6 +18,7 @@ public class StartManager : MonoBehaviour
         GameObject.Find("QuizManager").GetComponent<QuizFile>().enabled = false;
         GameObject.Find("GameUI").transform.GetChild(1).gameObject.SetActive(false);
         GameObject.Find("GameUI").transform.GetChild(2).gameObject.SetActive(false);
+        StartCoroutine("colorChange");
         gameObject.GetComponent<EndManager>().enabled = false;
     }
 
@@ -41,6 +45,25 @@ public class StartManager : MonoBehaviour
                 GameObject.Find("GameUI").transform.GetChild(1).gameObject.SetActive(true);
                 GameObject.Find("GameUI").transform.GetChild(0).gameObject.SetActive(false);
             }
+        }
+    }
+
+    IEnumerator colorChange()
+    {
+        while (true) {
+            for (int i = 0; i < 50; i++) {
+                colorcheck += 0.02f;
+                touchToStart.color = new Color(touchToStart.color.r, touchToStart.color.g, touchToStart.color.b, colorcheck);
+                yield return new WaitForSeconds(0.01f);
+            }
+            for (int i = 0; i < 50; i++)
+            {
+                colorcheck -= 0.02f;
+                touchToStart.color = new Color(touchToStart.color.r, touchToStart.color.g, touchToStart.color.b, colorcheck);
+                yield return new WaitForSeconds(0.01f);
+            }
+
+
         }
     }
 
